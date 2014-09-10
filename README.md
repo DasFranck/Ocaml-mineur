@@ -5,8 +5,8 @@ Programmes de quelques lignes en Ocaml qui ne seront probablement jamais édité
 
 ## Fonctions
 ### abba.ml
-Prend un nombre composé de deux chiffres "ab" et affiche abba.
-Dépend de mirror.ml
+*Prend un nombre composé de deux chiffres "ab" et affiche abba.
+*Dépend de mirror.ml
 
 ### mirror.ml
 Prend un nombre composé de deux chiffres "ab" et affiche ba.
@@ -15,4 +15,5 @@ Prend un nombre composé de deux chiffres "ab" et affiche ba.
 Prend un int (x) et retourne x^19
 
 ### stammer.ml
-Prend un nombre composé de deux chiffres "ab et affiche baababba
+*Prend un nombre composé de deux chiffres "ab et affiche baababba
+*Dépend de mirror.ml et abba.ml
