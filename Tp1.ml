@@ -1,7 +1,7 @@
 #load "graphics.cma" ;;
 open Graphics;;
 open_graph "" ;;
-
+(*qqqqq/*)
 open Random ;;
 self_init() ;;
 
