@@ -16,6 +16,6 @@ let rec sierpinski n x y z t =
                 sierpinski (n-1) ((x+z)/2) y z t;
                 sierpinski (n-1) (((z-x)/4)+x) (int_of_float((float_of_int(z-x)*.((sqrt 3.)/.2.))/.2.)+ y) (((z-x)*3/4)+ x) (int_of_float((float_of_int(z-x)*.((sqrt 3.)/.2.))/.2.)+ y) ;
               end
-		|_ -> failwith "Error." ;;
+        |_ -> failwith "Error." ;;
 
 (* La fonction est expérimentale et il y a un léger décalage à cause des int. *)
