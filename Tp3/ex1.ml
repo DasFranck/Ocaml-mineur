@@ -31,5 +31,3 @@ let rec letter_to_morse x = match x with
   |'Y'|'y' -> ['-';'.';'-';'-']
   |'Z'|'z' -> ['-';'-';'.';'.']
   |_       -> [];;
-
-let 
