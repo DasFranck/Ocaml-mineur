@@ -1,6 +1,6 @@
 (* Prerequis*)
 let rec append x y = match x with
-  |[] -> y
+  |[]   -> y
   |e::l -> e::(append l y);; 
   
  let rec alphanum_to_morse x = match x with
@@ -45,24 +45,24 @@ let rec append x y = match x with
 
 (* 2.1 Conversion *)
 let word_to_morse x = let rec wtm w l = match l with
-  |[] -> w
+  |[]   -> w
   |m::l -> wtm (append w [alphanum_to_morse m ]) l
-    in
+   in
        wtm [] x;;
 
 
 (* 2.2 Une autre facon de voir les choses *)
 let rec to_single_list x = match x with
-  |[] -> []
+  |[]                 -> []
   |[]::l when l <> [] -> ' '::(to_single_list l)
-  |[]::l when l = [] -> (to_single_list l)
-  |(a::b)::l -> a ::(to_single_list (b::l))
+  |[]::l when l = []  -> (to_single_list l)
+  |(a::b)::l          -> a ::(to_single_list (b::l))
   |_ -> failwith "Error";;
 
 
 (* 2.3 Impression*) 
 let impress_morse x = let rec impmor g = match g with
-    |[] -> print_newline (); print_newline();
-    |e::l -> (print_char e; impmor l) 
-  in
-    impmor (to_single_list (word_to_morse x));;
+  |[]   -> print_newline (); print_newline();
+  |e::l -> (print_char e; impmor l) 
+   in
+       impmor (to_single_list (word_to_morse x));;

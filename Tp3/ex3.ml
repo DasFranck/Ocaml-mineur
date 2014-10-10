@@ -42,6 +42,7 @@ let rec append x y = match x with
   |'9'     -> ['-';'-';'-';'-';'.']
   |_       -> [];;
 
+
 (* 3.1 Conversion (encore) *)
 let sentence_to_morse x = let rec wtm w l = match l with
   |[]   -> w
@@ -83,3 +84,5 @@ let to_single_morse x = let rec wtm w l = match l with
       in tsl (wtm [] x);;
 
 let latin_sentence_to_single x = sentence_to_single_list (sentence_to_morse x);;
+
+
