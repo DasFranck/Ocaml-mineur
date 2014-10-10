@@ -1,4 +1,4 @@
-(* Prerequis pour 2.1 *)
+(* Prerequis*)
 let rec append x y = match x with
   |[] -> y
   |e::l -> e::(append l y);; 
@@ -43,10 +43,8 @@ let rec append x y = match x with
   |_       -> [];;
 
 
-
 (* 2.1 Conversion *)
-let word_to_morse x = let rec wtm w l =
-  match l with
+let word_to_morse x = let rec wtm w l = match l with
   |[] -> w
   |m::l -> wtm (append w [alphanum_to_morse m ]) l
     in

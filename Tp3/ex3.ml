@@ -42,7 +42,44 @@ let rec append x y = match x with
   |'9'     -> ['-';'-';'-';'-';'.']
   |_       -> [];;
 
-(* Conversion (encore) *)
-let sentence_to_morse x = let rec stm s l = match l with
-  |[] -> s
-  |m::l -> stm 
+(* 3.1 Conversion (encore) *)
+let sentence_to_morse x = let rec wtm w l = match l with
+  |[]   -> w
+  |m::l -> wtm (append w [alphanum_to_morse m]) l
+    in
+                          let rec stw s l = match l with
+  |[]   -> s
+  |m::l -> stw (append s [wtm [] m]) l
+    in 
+       stw [] x;;
+
+
+(* 3.2 char list list ... *)
+let sentence_to_single_list x = let rec tsl x = match x with
+      |[]                 -> []
+      |[]::l when l <> [] -> ' '::(tsl l)
+      |[]::l when l = []  -> tsl l 
+      |(a::b)::l          -> a ::(tsl (b::l))
+      |_                  -> failwith "Error"
+    in
+                               let rec stsl l = match l with
+      |[]                 -> []
+      |a::l          -> append (append (tsl a)  (['/'])) (stsl l)
+    in
+       stsl x;;
+
+
+(* 3.3 Sans escales *)
+let to_single_morse x = let rec wtm w l = match l with
+  |[]   -> w
+  |m::l -> wtm (append w [alphanum_to_morse m]) l
+    in
+       let rec tsl x = match x with
+             |[] -> []
+             |[]::l when l <> [] -> ' '::(tsl l)
+             |[]::l when l = [] -> (tsl l)
+             |(a::b)::l -> a ::(tsl (b::l))
+             |_ -> failwith "Error"
+      in tsl (wtm [] x);;
+
+let latin_sentence_to_single x = sentence_to_single_list (sentence_to_morse x);;
