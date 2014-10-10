@@ -23,5 +23,5 @@ let reverse a =
 
 (* 0.4 Impression *)
 let rec impress a = match a with
-    |[] -> print_newline ();
+    |[] -> print_newline (); print_newline ();
     |e::l -> (print_char e; impress l);; 
