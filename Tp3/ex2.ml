@@ -65,4 +65,4 @@ let impress_morse x = let rec impmor g = match g with
   |[]   -> print_newline (); print_newline();
   |e::l -> (print_char e; impmor l) 
    in
-       impmor (to_single_list (word_to_morse x));;
+       impmor (to_single_list x);;
