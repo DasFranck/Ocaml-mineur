@@ -3,7 +3,7 @@ let rec append x y = match x with
   |[] -> y
   |e::l -> e::(append l y);; 
   
- let rec alphanum_to_morse x = match x with
+let rec alphanum_to_morse x = match x with
   |'A'|'a' -> ['.';'-']
   |'B'|'b' -> ['-';'.';'.';'.']
   |'C'|'c' -> ['-';'.';'-';'.']
@@ -84,5 +84,3 @@ let to_single_morse x = let rec wtm w l = match l with
       in tsl (wtm [] x);;
 
 let latin_sentence_to_single x = sentence_to_single_list (sentence_to_morse x);;
-
-
