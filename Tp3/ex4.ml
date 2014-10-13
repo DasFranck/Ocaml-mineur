@@ -80,3 +80,4 @@ let latin_to_morse str =
     in
      
       liststr (tsl (fuse (lstmorse [] (strlist str [] len))));;
+

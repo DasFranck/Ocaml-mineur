@@ -83,4 +83,4 @@ let to_single_morse x = let rec wtm w l = match l with
              |_ -> failwith "Error"
       in tsl (wtm [] x);;
 
-let latin_sentence_to_single x = sentence_to_single_list (sentence_to_morse x);;
+let latin_sentence_to_single x = sentence_to_single_list x;;
