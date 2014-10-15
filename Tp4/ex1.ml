@@ -8,9 +8,9 @@ let rec flat x = match x with
 
 (* 1.1 Compte *)
 let rec cell_count lst = match lst with
- |[]                   -> 0
- |e::l when e=0 || e=1 -> e+(cell_count l)
- |_ -> failwith "Erreur : liste incorrecte";;
+  |[]                   -> 0
+  |e::l when e=0 || e=1 -> e+(cell_count l)
+  |_ -> failwith "Erreur : liste incorrecte";;
 
 
 (* 1.2 Re-Compte *)
