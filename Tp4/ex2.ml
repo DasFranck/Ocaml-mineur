@@ -23,8 +23,9 @@ let rec draw_fill_square (x,y) size color =
 
 (* 2.3 Cellule *)
 let draw_cell (x,y) size cell = match cell with
-  |0 -> draw_square (x,y) size
-  |1 -> draw_fill_square (x,y) size yellow
+  |0 -> draw_square (x,y) size;
+        draw_fill_square (x+1,y+1) (size-2) white 
+  |1 -> draw_square (x,y) size 
   |_ -> failwith "Statue de la cellule invalide";;
 
 

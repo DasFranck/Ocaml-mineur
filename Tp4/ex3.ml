@@ -6,6 +6,27 @@ let rec append x y = match x with
   |[]   -> y
   |e::l -> e::(append l y);; 
 
+let gcell (x,y) board = 
+  let rec gc1 y n board = match board with
+    |[]              -> -5
+    |e::l when n = y -> e
+    |e::l            -> gc1 y (n+1) l
+  in
+
+  let rec gc2 x y n board = match board with
+    |[]              -> []
+    |e::l when n = x -> [gc1 y 1 e]
+    |e::l            -> gc2 x y (n+1) l
+  in
+     gc2 (x-1) y 0 board;;
+
+let rec flat x = match x with
+  |[]                 -> []
+  |[]::l              -> (flat l)
+  |(a::b)::l          -> a ::(flat (b::l))
+  |_ -> failwith "Error";;
+
+
 (* 3.1 Cellule *)
 let get_cell (x,y) board = 
   let rec gc1 x n board = match board with
@@ -61,7 +82,13 @@ let seed_life board n =
 
 
 (* 3.4 Voisinage *)
-let get_cell_neighborhood (x,y) board =
-  [(get_cell (x-1,y+1) board);(get_cell (x  ,y+1) board);(get_cell (x+1,y+1) board);
-   (get_cell (x-1,y  ) board)                           ;(get_cell (x+1,y  ) board);
-   (get_cell (x-1,y-1) board);(get_cell (x  ,y-1) board);(get_cell (x+1,y-1) board)];;
+let get_cell_neighborhood (x,y) board = 
+  let rec killbill x = match x with
+    |[]               -> []
+    |e::l when e = -5 -> killbill l
+    |e::l             -> e::(killbill l)
+  in
+   
+  killbill  (flat [gcell ((x-1),(y+1)) board; gcell (x  ,(y+1)) board; gcell ((x+1),(y+1)) board;
+                   gcell ((x-1),(y  )) board                         ; gcell ((x+1),y    ) board;
+                   gcell ((x-1),(y-1)) board; gcell (x  ,(y-1)) board; gcell ((x+1),(y-1)) board]);;
