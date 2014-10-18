@@ -3,8 +3,6 @@ let rec flat x = match x with
   |[]                 -> []
   |[]::l              -> (flat l)
   |(a::b)::l          -> a ::(flat (b::l))
-  |_ -> failwith "Error";;
-
 
 (* 1.1 Compte *)
 let rec cell_count lst = match lst with
