@@ -11,10 +11,9 @@ let rec append x y = match x with
   |e::l -> e::(append l y);; 
 
 (* 1.1 Valeur ? *)
-let value x edeu = match edeu with
+let rec value str edeu = match edeu with
   |[]                    -> failwith "Erreur"
-  |(e,y)::l when e = x   -> y
-  |(e,y)::l              -> value x l;;
+  |
 
 
 (* 1.2 Extraction *)

@@ -1,10 +1,11 @@
+(* Prerequis *)
 type 'a bundle = 
   | Empty
   | Item of 'a * 'a bundle;;
 
 
 (* 0.1 Vide *)
-let empty_bundle = Empty;;
+let empty_bundle() = Empty;;
 
 
 (* 0.2 Est Vide ? *)
